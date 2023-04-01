@@ -149,6 +149,8 @@ git checkout master
 git merge <targetbranch>
 ```
 
+En caso de haber conflictos, el editor de texto probablemente tiene una forma de arreglarlo.
+
 # Otros comandos
 
 ```bash
