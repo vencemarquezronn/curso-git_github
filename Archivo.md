@@ -142,7 +142,12 @@ Se pueden trabajar cosas aparte de la rama principal "master" si se hacen ramifi
 git branch <branchname> # Se crea una nueva ramificación con otro nombre
 git checkout <branchname> # Se cambia a la ramificación deseada
 ```
-Esto nos permite ir avanzando por otras partes, guardar el progreso en diferentes ramas y cambiar entre ramas para notar cómo se ve el cambio.
+Esto nos permite ir avanzando por otras partes, guardar el progreso en diferentes ramas y cambiar entre ramas para notar cómo se ve el cambio. Para fusionar dos ramificaciones se hace un `git merge` desde la rama master.
+
+```bash
+git checkout master
+git merge <targetbranch>
+```
 
 # Otros comandos
 
