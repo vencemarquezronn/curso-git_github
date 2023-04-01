@@ -77,6 +77,7 @@ También se pueden ver las diferencias entre archivos.
 
 ```bash
 git diff 4d39ff462dd9676c0542e8f3abeb55ab2d8de9de ed2c7cc86a08a4331ff56cccc0c04ef5229f7a2f # <Versión comparada> <versión a comparar>
+# También compara la versión actual con la versión en staging con `git diff`
 
 # -¡Hola Mundo!
 # -
@@ -113,4 +114,15 @@ git diff 4d39ff462dd9676c0542e8f3abeb55ab2d8de9de ed2c7cc86a08a4331ff56cccc0c04e
 # +¡Hola Mundo!
 # \ No newline at end of file
 
+```
+
+# Volver en el tiempo en el repositorio (`reset`y `checkout`)
+
+Es posible volver en el tiempo a una versión anterior del repositorio. Se puede buscar una versión con `git log <FILE>`, buscar el commit al que se quiere y regresar a esa versón.
+
+Hay dos tipos de commit, el "duro" y el "suave".
+
+```bash
+git reset <COMMIT> --hard # TODO vuelve a ese estado, es el más común
+git reset <COMMIT> --soft # Todo vuelve a ese estado EXCEPTO lo que esté en staging
 ```
