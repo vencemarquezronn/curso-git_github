@@ -133,3 +133,19 @@ No obstante, estas formas son peligrosas ya que pueden hacer que se pierda progr
 git checkout <COMMIT> <file.filetype> # Permite ver el estado de un archivo en un commit específico
 git checkout master <file.filetype> # Permite volver al estado del último commit o stage de un archivo
 ```
+
+# Ramificaciones de un repositorio
+
+Se pueden trabajar cosas aparte de la rama principal "master" si se hacen ramificaciones.
+
+```bash
+git branch <branchname> # Se crea una nueva ramificación con otro nombre
+git checkout <branchname> # Se cambia a la ramificación deseada
+```
+Esto nos permite ir avanzando por otras partes, guardar el progreso en diferentes ramas y cambiar entre ramas para notar cómo se ve el cambio.
+
+# Otros comandos
+
+```bash
+git commit -am "Message" # git add + commit -m
+```
