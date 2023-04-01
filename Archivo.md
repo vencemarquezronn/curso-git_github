@@ -126,3 +126,10 @@ Hay dos tipos de commit, el "duro" y el "suave".
 git reset <COMMIT> --hard # TODO vuelve a ese estado, es el más común
 git reset <COMMIT> --soft # Todo vuelve a ese estado EXCEPTO lo que esté en staging
 ```
+
+No obstante, estas formas son peligrosas ya que pueden hacer que se pierda progreso, por lo que es mejor hacer `git checkout`.
+
+```bash
+git checkout <COMMIT> <file.filetype> # Permite ver el estado de un archivo en un commit específico
+git checkout master <file.filetype> # Permite volver al estado del último commit o stage de un archivo
+```
