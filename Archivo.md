@@ -205,19 +205,22 @@ GitHub\Repositorio\Settings\Collaborators >> Se incluye el correo o username del
 Al desarrollar en diferentes ramificaciones por separado diferentes elementos del proyecto, los cambios no se ven reflejados en la rama principal.
 
 Primero se actualizan los cambios en las ramificaciones que se estén trabajando.
-
 ```bash
 git pull origin <Ramificacion>
 ```
-
 Segundo, se ubica en la rama principal y se hace el merge con la ramificación a combinar
-
 ```bash
 git checkout main
 git merge <Ramificación a combinar con "main">
 ```
 Si existen conflictos, se solucionan de la misma forma que se había hecho antes y se mandan a origen.
 
+```bash
+git pull origin main # Se actualiza la rama
+git push origin main # Se envían los cambios a origen
+```
+## Pull requests
+Ahora bien, no todos los cambios deberían verse reflejados en el entorno de producciónm sino sólo aquellos que sean definitivos, por lo que se utiliza una característica de GitHub llamada pull request
 # Otros comandos
 ```bash
 git commit -am "Message" # git add + commit -m
