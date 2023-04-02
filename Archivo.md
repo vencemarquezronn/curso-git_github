@@ -220,7 +220,16 @@ git pull origin main # Se actualiza la rama
 git push origin main # Se envían los cambios a origen
 ```
 ## Pull requests
-Ahora bien, no todos los cambios deberían verse reflejados en el entorno de producciónm sino sólo aquellos que sean definitivos, por lo que se utiliza una característica de GitHub llamada pull request
+Ahora bien, no todos los cambios deberían verse reflejados en el entorno de producción sino sólo aquellos que sean definitivos, por lo que se utiliza una característica de GitHub llamada pull request.
+
+Al iniciar una nueva ramificación y publicar cambios allí, se puede enviar una Pull Request que es, básicamente, la inicialización de una conversación sobre un cambio que se haya hecho en la ramificación para su revisión, transformación, aprobación y combinación con la rama principal. Una vez pasado por este proceso, es posible eliminar la ramificación pero se sugiere que sea sólo temporal.
+
+Para reflejar el cambio de la eliminación de la rama en el entorno local en que se haya creado, simplemente se actualiza la rama principal.
+
+```bash
+git checkout main
+git pull origin master
+```
 # Otros comandos
 ```bash
 git commit -am "Message" # git add + commit -m
