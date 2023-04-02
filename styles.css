@@ -32,3 +32,11 @@ body {
     padding: 0.5em;
 }
 
+footer {
+    width: 70%;
+    margin: 0 auto;
+    border: 1px solid #DDD;
+    color: white;
+    background-color: coral;
+    padding: 0.3em 0;
+}
