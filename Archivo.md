@@ -1,6 +1,6 @@
 ¡Hola Mundo!
 
-Estas son mis notas del curso de Git y GitHub de Plazti.
+Estas son mis notas del curso de Git y GitHub de Plazti. El código en Línea de Comandos aparece en Bash sólo por estética. Los comandos deben ser introducidos línea por línea y los comandos de Windows se declaran o se dejan como notas para correr en powershell.
 
 Estoy redactando las notas y aplicando en el archivo a medida que avanzo.
 
@@ -10,7 +10,7 @@ Se puede instalar git de diferentes maneras, pero mi preferencia es por línea d
 
 ## Windows
 
-```powershell
+```bash
 winget install Git.Git
 ```
 Con este comando, se instala git, git bash y una GUI para git.
@@ -39,7 +39,7 @@ Una vez creada una carpeta y estando dentro de la carpeta, se puede crear un arc
 ```bash
 mkdir Example
 cd Example
-touch Archivo.md
+touch Archivo.md # En Windows: ni Archivo.md
 code . #Se hacen cambios en VS Code
 
 git init
@@ -76,7 +76,7 @@ git show Archivo.md
 También se pueden ver las diferencias entre archivos.
 
 ```bash
-git diff 4d39ff462dd9676c0542e8f3abeb55ab2d8de9de ed2c7cc86a08a4331ff56cccc0c04ef5229f7a2f # <Versión comparada> <versión a comparar>
+git diff 4d39ff462dd9676c0542e8f3abeb55ab2d8de9de ed2c7cc86a08a4331ff56cccc0c04ef5229f7a2f # <Commit comparado> <Commit a comparar>
 # También compara la versión actual con la versión en staging con `git diff`
 
 # -¡Hola Mundo!
@@ -123,8 +123,8 @@ Es posible volver en el tiempo a una versión anterior del repositorio. Se puede
 Hay dos tipos de commit, el "duro" y el "suave".
 
 ```bash
-git reset <COMMIT> --hard # TODO vuelve a ese estado, es el más común
-git reset <COMMIT> --soft # Todo vuelve a ese estado EXCEPTO lo que esté en staging
+git reset <COMMIT.NUM> --hard # TODO vuelve a ese estado, es el más común
+git reset <COMMIT.NUM> --soft # Todo vuelve a ese estado EXCEPTO lo que esté en staging
 ```
 
 No obstante, estas formas son peligrosas ya que pueden hacer que se pierda progreso, por lo que es mejor hacer `git checkout`.
@@ -155,4 +155,46 @@ En caso de haber conflictos, el editor de texto probablemente tiene una forma de
 
 ```bash
 git commit -am "Message" # git add + commit -m
+```
+
+# Gestión de llaves públicas y privadas
+
+Si se va a colaborar en plataformas como GitHub y GitLab, es necesario crear llaves pública y privada. Esta llave está encriptada y la razón es para proteger el repositorio de ser hackeado o secuestrado. Por mi parte, al usar  GitHub CLI, la configuración ya se ha realizado sin necesidad de que yo intervenga, pero estos son los pasos en caso de que no sea así.
+
+Cualquier sistema operativo puede generar estas llaves:
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "tu@email.com" # De esta forma se genera una llave pública y privada para el email que se está utilizando en Git y GitHub/GitLab para registrar el trabajo.
+```
+
+Al final, el SO generará una llave pública y una privada, por lo general en el directorio raíz del usuario $HOME:
+
+```bash 
+C:\Users\YourUser\.ssh\ {id_rsa, id_rsa.pub} # Así se veria el directorio en Windows
+/home/YourUser/.ssh {id_rsa, id_rsa.pub} # Así se vería en Linux y Mac
+```
+
+Pero la forma en la que se revisan que las llaves existan y estén funcionando varía del SO:
+
+## Windows y Linux
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+# No se registra la llave pública, sino la privada. JAMÁS SE COMPARTE LA PRIVADA, SINO LA PÚBLICA.
+```
+## Mac
+
+```bash
+eval "$(ssh-agent -s)"
+# > Agent pid NUM
+cd ~/.ssh
+vim config
+# Introducir lo siguiente:
+# Host *
+#     AddKeysToAgent yes
+#     UseKeychain yes
+#     IdentityFile ~/.ssh/id_rsa
+cd ~
+ssh-add -K ~/.ssh/id_rsa
 ```
