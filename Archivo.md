@@ -230,9 +230,21 @@ Para reflejar el cambio de la eliminación de la rama en el entorno local en que
 git checkout main
 git pull origin master
 ```
-# Uso de forks
+## Uso de forks
 GitHub permite hacer un fork o una copia del proyecto original para que pueda trabajar en él sin tener que estar en el proyecto (debe estar en público). Se le da al botón `fork` en GitHub y hago un `git clone` en mi disco duro para poder trabajarlo de forma local. Una vez hecho, se hace commit y se envía al origen, pero esto no afecta al proyecto original. Para poder incorporar esos cambios en el proyecto original se hace un pull request y se maneja igual desde el lado de el equipo que maneja el proyecto original/principal.
+### Actualizar cambios en origen principal al origen del fork/local
+Se puede actualizar el fork con el original con un pull request desde GitHub, pero también es posible hacerlo desde Git en consola.
 
+Para eso, se agrega el origen principal a las fuentes del repo local, se traen esos cambios y se envían a mi origen del fork.
+```bash
+git remote add upstream <URL del repo original del proyecto>
+# Se agrega la fuente del proyecto original . "upstream" es opcional, es una forma de distinguir localmente el repo que trabajo del repo de donde hice el fork.
+git pull upstream main
+# Se trae los cambios del proyecto original a mi fork
+git commit -am "Fusión del repo original a mi fork"
+git push origin main
+# Se envían las actualizaciones a mi fork
+```
 # Otros comandos
 ```bash
 git commit -am "Message" # git add + commit -m
