@@ -245,6 +245,16 @@ git commit -am "Fusión del repo original a mi fork"
 git push origin main
 # Se envían las actualizaciones a mi fork
 ```
+# Ignorar archivos con .gitignore
+Hay archivos que quizá no se deberían sincronizar con el repositorio en línea, puede ser por preferencias personales (binarios), pero muy a menudo es por cuestiones de seguridad (ids, claves, llaves, entre otras). Para eso, se crea en el directorio raíz del repositorio un archivo `.gitignore`, donde se listan archivos específicos, directorios, conjunto de archivos. Así, se obvian los archivos y directorios indeseados dentro del proyecto.
+
+```bash
+*.jpg # Ignora todos los archivos de jpg
+directorio # Ignora un directorio
+archivo # Ignora un archivo
+# Los SO no suelen distinguir entre archivos y directorios a menos que tengan una extensión.
+```
+
 # Otros comandos
 ```bash
 git commit -am "Message" # git add + commit -m
