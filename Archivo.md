@@ -254,7 +254,8 @@ directorio # Ignora un directorio
 archivo # Ignora un archivo
 # Los SO no suelen distinguir entre archivos y directorios a menos que tengan una extensión.
 ```
-
+# Usando README.md
+Es buena práctica tener un archivo README.md que describe el proyecto y cómo funciona. Existe una variedad de editores. VS Code también puede editarlo, pero sólo como un archivo de texto, por lo que también es buena práctica aprender sintaxis de Markdown.
 # Otros comandos
 ```bash
 git commit -am "Message" # git add + commit -m
