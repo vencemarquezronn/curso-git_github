@@ -230,6 +230,9 @@ Para reflejar el cambio de la eliminación de la rama en el entorno local en que
 git checkout main
 git pull origin master
 ```
+# Uso de forks
+GitHub permite hacer un fork o una copia del proyecto original para que pueda trabajar en él sin tener que estar en el proyecto (debe estar en público). Se le da al botón `fork` en GitHub y hago un `git clone` en mi disco duro para poder trabajarlo de forma local. Una vez hecho, se hace commit y se envía al origen, pero esto no afecta al proyecto original. Para poder incorporar esos cambios en el proyecto original se hace un pull request y se maneja igual desde el lado de el equipo que maneja el proyecto original/principal.
+
 # Otros comandos
 ```bash
 git commit -am "Message" # git add + commit -m
